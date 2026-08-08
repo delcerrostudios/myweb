@@ -35,9 +35,10 @@
     .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.03em}
     .brand-mark{
-      width:34px;height:34px;border-radius:10px;background:#fff;overflow:hidden;display:grid;place-items:center
+      width:138px;height:44px;border-radius:10px;background:#fff;overflow:hidden;display:grid;place-items:center;padding:3px 8px
     }
-    .brand-mark img{width:100%;height:100%;object-fit:cover}
+    .brand-mark img{width:100%;height:100%;object-fit:contain}
+    .brand-name{display:none}
     .links{display:flex;gap:22px;font-size:14px;color:#d2d0ca}
     .links a:hover{color:#fff}
     .hero{
@@ -88,8 +89,8 @@
       margin-top:20px;display:grid;grid-template-columns:.8fr 1.2fr;gap:0;
       overflow:hidden;border:1px solid var(--line);border-radius:24px;background:var(--card)
     }
-    .numa-art{min-height:380px;background:#f4f4f2;display:grid;place-items:center;padding:35px}
-    .numa-art img{max-width:520px;object-fit:contain}
+    .numa-art{min-height:380px;background:#0d0d0d;display:grid;place-items:center;padding:0}
+    .numa-art img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1}
     .numa-copy{padding:42px;display:flex;flex-direction:column;justify-content:center}
     .numa-copy h3{font-size:clamp(38px,5vw,66px);letter-spacing:-.05em;line-height:.98;margin:10px 0 16px}
     .numa-copy p{color:var(--muted);font-size:18px;max-width:600px}
@@ -136,7 +137,7 @@
     <div class="wrap nav-inner">
       <a class="brand" href="#inicio">
         <span class="brand-mark"><img src="logo.png" alt="Logo Del Cerro Studios"></span>
-        <span>BASTIÁN THOMPSON</span>
+        <span class="brand-name">BASTIÁN THOMPSON</span>
       </a>
       <nav class="links">
         <a href="#producciones">Producciones</a>
@@ -180,20 +181,20 @@
               <iframe src="https://www.youtube.com/embed/OYJoK4nXKIU" title="Producción musical completa" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="project-body">
-              <div class="pill">Producción musical completa</div>
-              <h3>Composición · Mezcla · Master</h3>
-              <p>Proyecto desarrollado integralmente desde la construcción musical hasta el acabado final.</p><br><a class="btn ghost" href="https://www.youtube.com/watch?v=OYJoK4nXKIU" target="_blank" rel="noopener">Abrir en YouTube →</a>
+              <div class="pill">NUMA · ARIES</div>
+              <h3>Producción completa · Composición · Mezcla · Master</h3>
+              <p><strong>ARIES</strong>, parte del proyecto NUMA. Producción desarrollada integralmente desde la composición hasta la mezcla y el master final.</p><br><a class="btn ghost" href="https://www.youtube.com/watch?v=OYJoK4nXKIU" target="_blank" rel="noopener">Abrir en YouTube →</a>
             </div>
           </article>
 
           <article class="project">
             <div class="video">
-              <iframe src="https://www.youtube.com/embed/M5Abd3Br3_k" title="Live Session" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/qtAhvT_Irs4" title="Killen — Live Session" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="project-body">
-              <div class="pill">Live Session</div>
+              <div class="pill">KILLEN · Live Session</div>
               <h3>Grabación de audio · Mezcla · Master</h3>
-              <p>Captura y postproducción de audio para interpretación en vivo.</p><br><a class="btn ghost" href="https://www.youtube.com/watch?v=M5Abd3Br3_k" target="_blank" rel="noopener">Abrir en YouTube →</a>
+              <p>Captura y postproducción de audio para interpretación en vivo.</p><br><a class="btn ghost" href="https://www.youtube.com/watch?v=qtAhvT_Irs4" target="_blank" rel="noopener">Abrir en YouTube →</a>
             </div>
           </article>
 
@@ -226,11 +227,13 @@
         </div>
 
         <div class="numa" id="numa">
-          <div class="numa-art"><img src="logo.png" alt="Identidad visual asociada a Del Cerro Studios"></div>
+          <div class="numa-art"><img src="numa-origenes.png" alt="NUMA — Orígenes"></div>
           <div class="numa-copy">
             <div class="eyebrow">Proyecto personal</div>
             <h3>NUMA</h3>
-            <p>Un espacio de exploración musical propio, donde la producción y la composición funcionan con más libertad, intuición e identidad.</p>
+            <p>NUMA es mi proyecto musical personal. <strong>Orígenes</strong> reúne parte de ese universo sonoro, donde composición, producción y exploración conviven con mayor libertad. ARIES forma parte de este proyecto.</p>
+            <br>
+            <a class="btn ghost" href="https://proyectonuma.bandcamp.com/album/or-genes" target="_blank" rel="noopener">Escuchar Orígenes en Bandcamp →</a>
           </div>
         </div>
       </div>
