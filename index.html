@@ -3,152 +3,144 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#080808" />
   <title>Bastián Thompson — Audio, Música y Producción</title>
-  <meta name="description" content="Producción musical, audio, proyectos, cursos y mentorías de Bastián Thompson / Del Cerro Studios." />
+  <meta name="description" content="Producción musical, mezcla, master, grabación, baterías, cursos y mentorías. Bastián Thompson / Del Cerro Studios." />
   <style>
     :root{
-      --bg:#090909;
-      --bg-soft:#111111;
+      --bg:#080808;
+      --bg2:#111;
       --card:#151515;
-      --text:#f5f5f2;
-      --muted:#a6a6a0;
-      --line:#262626;
-      --accent:#d6ff4b;
+      --text:#f4f3ee;
+      --muted:#aaa8a1;
+      --line:#252525;
+      --accent:#ff2145;
       --max:1180px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height:1.5;
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.5
     }
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    img{display:block;width:100%}
     .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
     .nav{
-      position:fixed;inset:0 0 auto 0;z-index:20;
-      background:rgba(9,9,9,.72);
-      backdrop-filter:blur(14px);
+      position:fixed;z-index:50;left:0;right:0;top:0;
+      background:rgba(8,8,8,.72);backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(255,255,255,.06)
     }
-    .nav-inner{
-      height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.03em}
+    .brand-mark{
+      width:34px;height:34px;border-radius:10px;background:#fff;overflow:hidden;display:grid;place-items:center
     }
-    .brand{font-weight:800;letter-spacing:-.03em}
-    .brand span{color:var(--accent)}
-    .links{display:flex;gap:24px;font-size:14px;color:#d0d0cb}
-    .links a:hover{color:white}
+    .brand-mark img{width:100%;height:100%;object-fit:cover}
+    .links{display:flex;gap:22px;font-size:14px;color:#d2d0ca}
+    .links a:hover{color:#fff}
     .hero{
-      min-height:100svh;display:grid;align-items:end;
-      padding:130px 0 70px;
+      min-height:100svh;position:relative;display:flex;align-items:flex-end;overflow:hidden;
+      padding:125px 0 72px;
+      background:#080808
+    }
+    .hero-media{position:absolute;inset:0}
+    .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 43%;filter:grayscale(100%) contrast(1.06) brightness(.68)}
+    .hero-overlay{
+      position:absolute;inset:0;
       background:
-        radial-gradient(circle at 75% 25%,rgba(214,255,75,.12),transparent 28%),
-        radial-gradient(circle at 20% 80%,rgba(255,255,255,.08),transparent 30%),
-        linear-gradient(135deg,#090909 0%,#101010 55%,#070707 100%);
-      overflow:hidden;position:relative;
+        linear-gradient(90deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.42) 48%,rgba(0,0,0,.15) 100%),
+        linear-gradient(0deg,rgba(0,0,0,.82) 0%,transparent 45%,rgba(0,0,0,.2) 100%)
     }
-    .hero:after{
-      content:"";position:absolute;right:-10vw;bottom:-25vw;width:60vw;height:60vw;border-radius:50%;
-      border:1px solid rgba(255,255,255,.08)
-    }
-    .kicker{
-      display:inline-flex;align-items:center;gap:10px;
-      color:#d9d9d4;font-size:13px;text-transform:uppercase;letter-spacing:.16em;margin-bottom:22px
-    }
+    .hero-content{position:relative;z-index:2;width:100%}
+    .kicker{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.16em;font-size:12px;margin-bottom:20px}
     .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
     h1{
-      font-size:clamp(58px,10vw,145px);line-height:.86;letter-spacing:-.07em;
-      margin:0;max-width:1000px;text-transform:uppercase
+      margin:0;font-size:clamp(56px,10vw,140px);line-height:.86;letter-spacing:-.07em;
+      text-transform:uppercase;max-width:980px
     }
-    .hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:42px}
-    .hero-copy{max-width:620px;color:var(--muted);font-size:clamp(17px,2vw,22px)}
+    .hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:36px}
+    .hero-copy{font-size:clamp(17px,2vw,21px);color:#d7d5cf;max-width:670px}
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:52px;padding:0 22px;border-radius:999px;border:1px solid var(--line);
-      background:#f4f4ef;color:#0b0b0b;font-weight:750;white-space:nowrap
+      min-height:50px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
+      font-weight:750;border:1px solid var(--line);background:#f5f4ee;color:#090909;transition:.2s ease
     }
-    .btn:hover{transform:translateY(-1px)}
-    .btn.alt{background:transparent;color:white}
-    section{padding:110px 0;border-top:1px solid var(--line)}
-    .section-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
-    .eyebrow{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.18em}
-    h2{font-size:clamp(38px,6vw,74px);line-height:.95;letter-spacing:-.05em;margin:10px 0 0}
-    .intro{color:var(--muted);font-size:18px;max-width:560px;align-self:end}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .card{
-      grid-column:span 4;background:var(--card);border:1px solid var(--line);
-      border-radius:22px;overflow:hidden;min-height:420px;display:flex;flex-direction:column
+    .btn:hover{transform:translateY(-2px)}
+    .btn.dark{background:#0b0b0b;color:white;border-color:#0b0b0b}
+    .btn.ghost{background:transparent;color:white;border-color:#444}
+    section{padding:105px 0;border-top:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:44px}
+    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:800}
+    h2{margin:10px 0 0;font-size:clamp(42px,6vw,76px);letter-spacing:-.055em;line-height:.95}
+    .intro{color:var(--muted);font-size:18px;max-width:570px}
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .project{
+      border:1px solid var(--line);border-radius:22px;background:var(--card);overflow:hidden
     }
-    .visual{
-      min-height:245px;padding:24px;display:flex;align-items:flex-end;
-      background:
-        radial-gradient(circle at 70% 20%,rgba(214,255,75,.18),transparent 24%),
-        linear-gradient(145deg,#202020,#0e0e0e)
+    .video{aspect-ratio:16/9;background:#000}
+    .video iframe{width:100%;height:100%;border:0;display:block}
+    .project-body{padding:22px}
+    .project h3{font-size:24px;letter-spacing:-.03em;margin:0 0 8px}
+    .project p{margin:0;color:var(--muted)}
+    .pill{display:inline-flex;margin-bottom:12px;border:1px solid #363636;border-radius:999px;padding:6px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#d6d3cc}
+    .numa{
+      margin-top:20px;display:grid;grid-template-columns:.8fr 1.2fr;gap:0;
+      overflow:hidden;border:1px solid var(--line);border-radius:24px;background:var(--card)
     }
-    .visual strong{font-size:64px;letter-spacing:-.07em;opacity:.9}
-    .card-body{padding:24px}
-    .card h3{font-size:25px;letter-spacing:-.03em;margin:0 0 8px}
-    .card p{margin:0;color:var(--muted)}
-    .project{grid-column:span 6;min-height:470px}
-    .project .visual{min-height:335px}
-    .tag{
-      display:inline-flex;padding:7px 11px;border:1px solid rgba(255,255,255,.14);
-      border-radius:999px;font-size:12px;color:#e9e9e3;background:rgba(0,0,0,.25)
-    }
-    .course{
-      display:grid;grid-template-columns:1.2fr .8fr;gap:0;
-      border:1px solid var(--line);border-radius:26px;overflow:hidden;background:var(--card)
+    .numa-art{min-height:380px;background:#f4f4f2;display:grid;place-items:center;padding:35px}
+    .numa-art img{max-width:520px;object-fit:contain}
+    .numa-copy{padding:42px;display:flex;flex-direction:column;justify-content:center}
+    .numa-copy h3{font-size:clamp(38px,5vw,66px);letter-spacing:-.05em;line-height:.98;margin:10px 0 16px}
+    .numa-copy p{color:var(--muted);font-size:18px;max-width:600px}
+    .courses{
+      display:grid;grid-template-columns:1.15fr .85fr;border:1px solid var(--line);
+      border-radius:24px;overflow:hidden;background:#121212
     }
     .course-copy{padding:44px}
-    .course-copy h3{font-size:clamp(34px,5vw,62px);line-height:1;letter-spacing:-.05em;margin:12px 0 20px}
-    .course-copy p{color:var(--muted);font-size:18px;max-width:620px}
+    .course-copy h3{font-size:clamp(38px,5vw,64px);line-height:1;letter-spacing:-.05em;margin:12px 0 18px}
+    .course-copy p{color:var(--muted);font-size:18px;max-width:650px}
     .course-side{
-      min-height:420px;display:flex;align-items:flex-end;padding:32px;
+      min-height:390px;display:flex;align-items:flex-end;padding:30px;position:relative;overflow:hidden;
       background:
-        linear-gradient(180deg,transparent,rgba(0,0,0,.7)),
-        radial-gradient(circle at 60% 30%,rgba(214,255,75,.34),transparent 30%),
-        #1b1b1b
+        radial-gradient(circle at 62% 25%,rgba(255,33,69,.42),transparent 26%),
+        linear-gradient(145deg,#202020,#0d0d0d)
     }
-    .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
-    .portrait{
-      aspect-ratio:4/5;border-radius:24px;border:1px solid var(--line);
-      background:
-        linear-gradient(180deg,transparent,rgba(0,0,0,.6)),
-        radial-gradient(circle at 60% 30%,rgba(214,255,75,.15),transparent 28%),
-        #151515;
-      display:flex;align-items:flex-end;padding:24px;color:var(--muted)
-    }
-    .about-copy h2{margin-top:0}
+    .course-side:after{content:"AUDIO";position:absolute;right:-20px;bottom:-28px;font-weight:900;font-size:110px;letter-spacing:-.08em;color:rgba(255,255,255,.05)}
+    .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}
+    .about-img{border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#111;aspect-ratio:4/5}
+    .about-img img{height:100%;object-fit:cover;object-position:center}
     .about-copy p{font-size:20px;color:var(--muted);max-width:680px}
-    .contact{
-      padding:90px 0 70px;
-      background:var(--accent);color:#0a0a0a;border-top:0
-    }
-    .contact h2{font-size:clamp(56px,10vw,130px);max-width:1000px}
-    .contact-row{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-top:50px}
-    .contact .btn{background:#0b0b0b;color:white;border-color:#0b0b0b}
-    footer{padding:24px 0;background:var(--accent);color:#0a0a0a;border-top:1px solid rgba(0,0,0,.2)}
+    .contact{background:var(--accent);color:#080808;border:0}
+    .contact .eyebrow{color:#080808}
+    .contact h2{font-size:clamp(50px,9vw,118px);max-width:1080px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:50px;align-items:end}
+    .contact-data{font-size:18px}
+    .contact-data a{display:block;margin:7px 0;font-weight:700}
+    .socials{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+    footer{padding:26px 0;background:#080808;color:#9d9b95}
     .footer-row{display:flex;justify-content:space-between;gap:20px;font-size:13px}
-    @media (max-width:850px){
+    @media (max-width:880px){
       .links{display:none}
-      .hero-bottom,.contact-row{align-items:flex-start;flex-direction:column}
-      .section-head,.about,.course{grid-template-columns:1fr}
-      .card,.project{grid-column:span 12}
-      section{padding:82px 0}
-      .course-side{min-height:300px}
-      .about{gap:35px}
+      .hero-bottom{flex-direction:column;align-items:flex-start}
+      .section-head,.projects,.numa,.courses,.about,.contact-grid{grid-template-columns:1fr}
+      .numa-art{min-height:300px}
+      .socials{justify-content:flex-start}
+      section{padding:80px 0}
+      .hero-media img{object-position:58% center}
     }
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="#inicio">BASTIÁN<span>.</span></a>
+      <a class="brand" href="#inicio">
+        <span class="brand-mark"><img src="assets/logo.png" alt="Logo Del Cerro Studios"></span>
+        <span>BASTIÁN THOMPSON</span>
+      </a>
       <nav class="links">
         <a href="#producciones">Producciones</a>
+        <a href="#numa">NUMA</a>
         <a href="#cursos">Cursos</a>
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#contacto">Contacto</a>
@@ -158,14 +150,16 @@
 
   <main>
     <section class="hero" id="inicio">
-      <div class="wrap">
-        <div class="kicker"><span class="dot"></span> Audio · Música · Producción · Formación</div>
-        <h1>Bastián<br>Thompson</h1>
-        <div class="hero-bottom">
-          <div class="hero-copy">
-            Producción musical, dirección técnica y formación para artistas y creadores que quieren convertir una idea en un proyecto real.
+      <div class="hero-media"><img src="assets/principal.jpg" alt="Bastián Thompson en batería"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="wrap">
+          <div class="kicker"><span class="dot"></span> Audio · Música · Producción · Formación</div>
+          <h1>Bastián<br>Thompson</h1>
+          <div class="hero-bottom">
+            <div class="hero-copy">Producción musical, audio y acompañamiento técnico para artistas y creadores que quieren llevar una idea desde la intuición hasta una obra terminada.</div>
+            <a class="btn" href="#producciones">Ver producciones ↓</a>
           </div>
-          <a class="btn" href="#producciones">Ver trabajos ↓</a>
         </div>
       </div>
     </section>
@@ -177,45 +171,67 @@
             <div class="eyebrow">Trabajo seleccionado</div>
             <h2>Producciones</h2>
           </div>
-          <div class="intro">Este espacio está pensado para reemplazar estos bloques por tus fotografías, portadas y videos reales.</div>
+          <div class="intro">Una selección de trabajos donde he participado desde distintos roles: producción, composición, grabación, mezcla, master e interpretación.</div>
         </div>
 
-        <div class="grid">
-          <article class="card project">
-            <div class="visual"><span class="tag">Producción musical</span></div>
-            <div class="card-body">
-              <h3>Proyecto destacado #01</h3>
-              <p>Producción · Grabación · Mezcla</p>
+        <div class="projects">
+          <article class="project">
+            <div class="video">
+              <iframe src="https://www.youtube.com/embed/OYJoK4nXKIU" title="Producción musical completa" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="project-body">
+              <div class="pill">Producción musical completa</div>
+              <h3>Composición · Mezcla · Master</h3>
+              <p>Proyecto desarrollado integralmente desde la construcción musical hasta el acabado final.</p>
             </div>
           </article>
-          <article class="card project">
-            <div class="visual"><span class="tag">Live Session</span></div>
-            <div class="card-body">
-              <h3>Proyecto destacado #02</h3>
-              <p>Audio · Dirección técnica · Audiovisual</p>
+
+          <article class="project">
+            <div class="video">
+              <iframe src="https://www.youtube.com/embed/M5Abd3Br3_k" title="Live Session" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="project-body">
+              <div class="pill">Live Session</div>
+              <h3>Grabación de audio · Mezcla · Master</h3>
+              <p>Captura y postproducción de audio para interpretación en vivo.</p>
             </div>
           </article>
-          <article class="card">
-            <div class="visual"><strong>01</strong></div>
-            <div class="card-body">
-              <h3>Música</h3>
-              <p>Lanzamientos, composiciones y proyectos propios.</p>
+
+          <article class="project">
+            <div class="video">
+              <iframe src="https://www.youtube.com/embed/GzhUe3-pkZc" title="Interpretación de baterías" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="project-body">
+              <div class="pill">Músico</div>
+              <h3>Interpretación de baterías</h3>
+              <p>Trabajo de interpretación y ejecución musical en batería.</p>
             </div>
           </article>
-          <article class="card">
-            <div class="visual"><strong>02</strong></div>
-            <div class="card-body">
-              <h3>Audio</h3>
-              <p>Grabación, mezcla, sistemas de sonido y dirección técnica.</p>
+
+          <article class="project">
+            <div class="video" style="display:grid;place-items:center;background:linear-gradient(145deg,#1a1a1a,#090909);padding:35px;text-align:center">
+              <div>
+                <div class="eyebrow">Más trabajos</div>
+                <h3 style="font-size:40px;margin:10px 0 16px">Del Cerro Studios</h3>
+                <p style="color:#aaa8a1;margin-bottom:22px">Producciones, sesiones y material audiovisual.</p>
+                <a class="btn ghost" href="https://youtube.com/@delcerrostudios?si=vGGVSUTKKSaMvZJu" target="_blank" rel="noopener">Ver canal de YouTube →</a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="pill">Portafolio</div>
+              <h3>Más producciones</h3>
+              <p>Explora el canal para conocer otros trabajos y colaboraciones.</p>
             </div>
           </article>
-          <article class="card">
-            <div class="visual"><strong>03</strong></div>
-            <div class="card-body">
-              <h3>Audiovisual</h3>
-              <p>Sesiones, contenido para artistas y producciones creativas.</p>
-            </div>
-          </article>
+        </div>
+
+        <div class="numa" id="numa">
+          <div class="numa-art"><img src="assets/logo.png" alt="Identidad visual asociada a Del Cerro Studios"></div>
+          <div class="numa-copy">
+            <div class="eyebrow">Proyecto personal</div>
+            <h3>NUMA</h3>
+            <p>Un espacio de exploración musical propio, donde la producción y la composición funcionan con más libertad, intuición e identidad.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -224,49 +240,51 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Aprende conmigo</div>
+            <div class="eyebrow">Formación</div>
             <h2>Cursos & mentorías</h2>
           </div>
-          <div class="intro">Un área para transformar tu experiencia en productos digitales, cursos y sesiones de acompañamiento.</div>
+          <div class="intro">Contenido pensado para ayudarte a tomar mejores decisiones técnicas, desarrollar criterio y avanzar en tus propios proyectos.</div>
         </div>
-
-        <div class="course">
+        <div class="courses">
           <div class="course-copy">
-            <div class="eyebrow">Próximamente</div>
+            <div class="eyebrow">En desarrollo</div>
             <h3>Construye tu Home Studio con criterio.</h3>
-            <p>Una guía práctica para entender qué necesitas realmente, invertir mejor y tomar decisiones técnicas sin perderte entre equipos y especificaciones.</p>
+            <p>Una guía práctica para entender qué necesitas realmente, invertir mejor y crear un espacio de trabajo funcional sin perderte entre equipos y especificaciones.</p>
             <br>
-            <a class="btn alt" href="#contacto">Quiero saber más</a>
+            <a class="btn ghost" href="mailto:delcerrostudio@gmail.com?subject=Quiero%20información%20sobre%20cursos%20y%20mentorías">Quiero información →</a>
           </div>
-          <div class="course-side">
-            <span class="tag">Curso / Toolkit</span>
-          </div>
+          <div class="course-side"><span class="pill">Cursos · Toolkit · Mentorías</span></div>
         </div>
       </div>
     </section>
 
     <section id="sobre-mi">
       <div class="wrap about">
-        <div class="portrait">Aquí pondremos una fotografía tuya.</div>
+        <div class="about-img"><img src="assets/sobre-mi.jpg" alt="Bastián Thompson trabajando en audio"></div>
         <div class="about-copy">
           <div class="eyebrow">Sobre mí</div>
           <h2>Técnica al servicio de una idea.</h2>
-          <p>Trabajo entre la música, el audio y la producción ayudando a artistas y creadores a ordenar ideas, entender lo técnico y encontrar una dirección concreta para sus proyectos.</p>
-          <p>Este sitio será el punto de encuentro entre mis producciones, mi música y los contenidos de formación que estoy desarrollando.</p>
+          <p>Soy Bastián Thompson. Trabajo entre la música, el audio y la producción, acompañando proyectos desde la idea inicial hasta una solución técnica concreta.</p>
+          <p>Mi enfoque combina producción musical, experiencia práctica en sonido y una forma de trabajo orientada a que artistas y creadores entiendan mejor sus decisiones y construyan proyectos con identidad.</p>
         </div>
       </div>
     </section>
 
     <section class="contact" id="contacto">
       <div class="wrap">
-        <div class="eyebrow" style="color:#0a0a0a">Contacto</div>
-        <h2>Hagamos algo que valga la pena escuchar.</h2>
-        <div class="contact-row">
-          <div>
-            <strong>Instagram · YouTube · Email · WhatsApp</strong><br>
-            <small>Reemplazaremos estos datos por tus enlaces reales.</small>
+        <div class="eyebrow">Contacto</div>
+        <h2>Conversemos sobre tu próximo proyecto.</h2>
+        <div class="contact-grid">
+          <div class="contact-data">
+            <a href="mailto:delcerrostudio@gmail.com">delcerrostudio@gmail.com</a>
+            <a href="tel:+56984703173">+56 9 8470 3173</a>
+            <a href="https://wa.me/56984703173" target="_blank" rel="noopener">WhatsApp →</a>
           </div>
-          <a class="btn" href="mailto:tuemail@ejemplo.com">Escríbeme →</a>
+          <div class="socials">
+            <a class="btn dark" href="https://www.instagram.com/delcerrostudios?igsh=bHQ0MWZrdGxjMGx3&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn dark" href="https://www.facebook.com/share/1ER4es17cL/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+            <a class="btn dark" href="https://youtube.com/@delcerrostudios?si=vGGVSUTKKSaMvZJu" target="_blank" rel="noopener">YouTube</a>
+          </div>
         </div>
       </div>
     </section>
@@ -275,7 +293,7 @@
   <footer>
     <div class="wrap footer-row">
       <span>© 2026 Bastián Thompson / Del Cerro Studios</span>
-      <span>Monte Patria · Chile</span>
+      <span>Audio · Música · Producción</span>
     </div>
   </footer>
 </body>
