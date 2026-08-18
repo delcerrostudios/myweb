@@ -121,12 +121,23 @@
     .socials{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
     footer{padding:26px 0;background:#080808;color:#9d9b95}
     .footer-row{display:flex;justify-content:space-between;gap:20px;font-size:13px}
+
+    .reviews{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 18px;cursor:grab}
+    .reviews::-webkit-scrollbar{display:none}.reviews.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+    .review{flex:0 0 min(520px,44vw);scroll-snap-align:start;border:1px solid var(--line);border-radius:22px;background:var(--card);padding:30px;display:flex;flex-direction:column;justify-content:space-between;min-height:410px}
+    .quote-mark{font:72px/.65 Georgia,serif;color:var(--accent);margin-bottom:25px}.review blockquote{margin:0;color:#dedcd6;font-size:17px;line-height:1.72}
+    .review-person{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}.review-person strong{display:block;font-size:17px}.review-person span{display:block;color:var(--muted);font-size:14px;margin-top:3px}
+    .review-note{font-size:12px;color:#77756f;margin-top:16px}.review-controls{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+    .review-arrow{width:48px;height:48px;border-radius:50%;border:1px solid #383838;background:#141414;color:#fff;font-size:20px;cursor:pointer}.review-arrow:hover{background:#f4f3ee;color:#090909}
+
     @media (max-width:880px){
       .links{display:none}
       .hero-bottom{flex-direction:column;align-items:flex-start}
       .section-head,.projects,.numa,.courses,.about,.contact-grid{grid-template-columns:1fr}
       .numa-art{min-height:300px}
       .socials{justify-content:flex-start}
+      .review{flex-basis:88vw;min-height:auto}
+      .review-controls{display:none}
       section{padding:80px 0}
       .hero-media img{object-position:58% center}
     }
@@ -144,6 +155,7 @@
         <a href="#numa">NUMA</a>
         <a href="#cursos">Cursos</a>
         <a href="#sobre-mi">Sobre mí</a>
+        <a href="#resenas">Reseñas</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -273,6 +285,8 @@
       </div>
     </section>
 
+    <section id="resenas"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Experiencias</div><h2>Lo que dicen quienes han trabajado conmigo.</h2></div><div class="intro">Producción musical también significa escuchar, acompañar y construir confianza. Testimonios de artistas y profesionales con quienes he compartido distintos procesos creativos.</div></div><div class="reviews" id="reviews"><article class="review"><div><div class="quote-mark">“</div><blockquote>Uno de los aspectos que más valoro de trabajar con Bastián es su calidad humana y profesional. Genera un ambiente muy grato, con comunicación, respeto por las ideas y una preocupación real por que cada proyecto alcance su mejor resultado. Técnicamente demuestra criterio, precisión y una gran capacidad para comprender las necesidades de cada proyecto, combinando solvencia técnica con sensibilidad artística.</blockquote></div><div class="review-person"><strong>Marcelo Torrejón</strong><span>Músico y artista · Ovalle, Chile</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>Bastián ha sido parte importante de mi proceso como artista. Hemos trabajado varias canciones juntos y ha sido bacán compartir este camino con él. Además de ser un tremendo músico, productor y letrista, tiene una paciencia enorme y siempre está ayudándome a sacar lo mejor de cada canción y también de mí como cantante. Siempre escucha mis ideas, incluso las más locas, y busca la manera de llevarlas a un buen resultado.</blockquote></div><div class="review-person"><strong>Emily Lagos</strong><span>Cantante · Monte Patria, Chile</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>Compartimos un proyecto musical durante aproximadamente seis años y Bastián fue una persona muy importante en mi camino como cantante. Siempre me impulsó a atreverme y confiar más en mis capacidades. Es muy atento a los detalles y le importa profundamente que las cosas se hagan bien. Trabajar con él no solo significó compartir música, sino también crecer como artista y como persona, y encontrar más confianza en mi propia voz.</blockquote></div><div class="review-person"><strong>Ximena Bahena</strong><span>Cantante · México</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>He tenido el privilegio de trabajar con Bastián en varios proyectos y, sin duda, es uno de los mejores productores musicales que conozco. Más allá de su criterio técnico, destaco especialmente su sensibilidad y capacidad creativa. Tiene ese talento poco común de comprender una idea que todavía existe solo en tu cabeza y transformarla en un sonido con identidad, carácter y magia propia, incluso llevándola mucho más lejos de lo que originalmente imaginabas.</blockquote></div><div class="review-person"><strong>Antón Aliwen</strong><span>Músico y artista · La Serena, Chile</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>Si buscas un profesional cercano y talentoso, que no te deje solo durante el proceso, recomiendo plenamente a Bastián. Tiene la capacidad de guiarte, ordenar el caos, optimizar los tiempos y acompañar el proyecto hasta conseguir un resultado de primer nivel.</blockquote></div><div class="review-person"><strong>Marcelo Rivera</strong><span>Gestor cultural · Músico</span></div></article></div><div class="review-controls"><button class="review-arrow" id="reviewPrev" aria-label="Reseña anterior">←</button><button class="review-arrow" id="reviewNext" aria-label="Reseña siguiente">→</button></div><div class="review-note">Extractos editados por extensión, manteniendo el sentido de los testimonios originales.</div></div></section>
+
     <section class="contact" id="contacto">
       <div class="wrap">
         <div class="eyebrow">Contacto</div>
@@ -299,5 +313,13 @@
       <span>Audio · Música · Producción</span>
     </div>
   </footer>
+<script>
+const reviews=document.getElementById('reviews'),prev=document.getElementById('reviewPrev'),next=document.getElementById('reviewNext');
+const step=()=>reviews.querySelector('.review').getBoundingClientRect().width+18;
+prev.onclick=()=>reviews.scrollBy({left:-step(),behavior:'smooth'});next.onclick=()=>reviews.scrollBy({left:step(),behavior:'smooth'});
+let down=false,x=0,s=0;reviews.onmousedown=e=>{down=true;reviews.classList.add('dragging');x=e.pageX;s=reviews.scrollLeft};
+window.onmouseup=()=>{down=false;reviews.classList.remove('dragging')};reviews.onmouseleave=window.onmouseup;
+reviews.onmousemove=e=>{if(down){e.preventDefault();reviews.scrollLeft=s-(e.pageX-x)}};
+</script>
 </body>
 </html>
