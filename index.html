@@ -4,8 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#080808" />
-  <title>Bastián Thompson — Audio, Música y Producción</title>
-  <meta name="description" content="Producción musical, mezcla, master, grabación, baterías, cursos y mentorías. Bastián Thompson / Del Cerro Studios." />
+  <title>Bastián Thompson — Mentor técnico en audio | Del Cerro Studios</title>
+  <meta name="description" content="Mentorías técnicas y recursos para músicos, productores y creadores que quieren mejorar su home studio, resolver problemas de audio y trabajar con mayor criterio." />
+  <link rel="canonical" href="https://delcerrostudios.click/" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Bastián Thompson — Mentor técnico en audio" />
+  <meta property="og:description" content="Mentorías y recursos para tomar mejores decisiones de audio, ordenar tu home studio y avanzar con criterio." />
+  <meta property="og:url" content="https://delcerrostudios.click/" />
+  <meta property="og:image" content="https://delcerrostudios.click/principal.jpg" />
+  <meta property="og:image:alt" content="Bastián Thompson trabajando en una sesión musical" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bastián Thompson",
+    "url": "https://delcerrostudios.click/",
+    "image": "https://delcerrostudios.click/principal.jpg",
+    "jobTitle": "Mentor técnico en audio y productor musical",
+    "worksFor": {"@type": "Organization", "name": "Del Cerro Studios"},
+    "sameAs": [
+      "https://www.instagram.com/delcerrostudios/",
+      "https://www.youtube.com/@delcerrostudios"
+    ]
+  }
+  </script>
   <style>
     :root{
       --bg:#080808;
@@ -26,6 +51,9 @@
     }
     a{color:inherit;text-decoration:none}
     img{display:block;width:100%}
+    :focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .skip-link{position:fixed;z-index:100;left:16px;top:-80px;background:#fff;color:#080808;padding:12px 16px;border-radius:10px;font-weight:800}
+    .skip-link:focus{top:16px}
     .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
     .nav{
       position:fixed;z-index:50;left:0;right:0;top:0;
@@ -39,8 +67,12 @@
     }
     .brand-mark img{width:100%;height:100%;object-fit:contain}
     .brand-name{display:none}
-    .links{display:flex;gap:22px;font-size:14px;color:#d2d0ca}
+    .links{display:flex;align-items:center;gap:22px;font-size:14px;color:#d2d0ca}
     .links a:hover{color:#fff}
+    .links .nav-cta{border:1px solid #4a4a4a;border-radius:999px;padding:9px 14px;color:#fff}
+    .menu-toggle{display:none;width:46px;height:46px;border:1px solid #383838;border-radius:50%;background:#111;color:#fff;font-size:21px;cursor:pointer}
+    .mobile-menu{display:none;padding:4px 20px 20px;border-top:1px solid rgba(255,255,255,.06)}
+    .mobile-menu a{display:block;padding:12px 0;color:#dedcd6;border-bottom:1px solid #222}
     .hero{
       min-height:100svh;position:relative;display:flex;align-items:flex-end;overflow:hidden;
       padding:125px 0 72px;
@@ -57,12 +89,10 @@
     .hero-content{position:relative;z-index:2;width:100%}
     .kicker{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.16em;font-size:12px;margin-bottom:20px}
     .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}
-    h1{
-      margin:0;font-size:clamp(56px,10vw,140px);line-height:.86;letter-spacing:-.07em;
-      text-transform:uppercase;max-width:980px
-    }
+    h1{margin:0;font-size:clamp(48px,8.2vw,112px);line-height:.9;letter-spacing:-.065em;max-width:1100px}
     .hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:36px}
     .hero-copy{font-size:clamp(17px,2vw,21px);color:#d7d5cf;max-width:670px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
     .btn{
       min-height:50px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
       font-weight:750;border:1px solid var(--line);background:#f5f4ee;color:#090909;transition:.2s ease
@@ -75,6 +105,22 @@
     .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:800}
     h2{margin:10px 0 0;font-size:clamp(42px,6vw,76px);letter-spacing:-.055em;line-height:.95}
     .intro{color:var(--muted);font-size:18px;max-width:570px}
+    .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .offer{border:1px solid var(--line);border-radius:22px;background:var(--card);padding:30px;display:flex;flex-direction:column;min-height:310px}
+    .offer-number{color:var(--accent);font-weight:850;font-size:13px;letter-spacing:.14em}
+    .offer h3{font-size:28px;letter-spacing:-.035em;line-height:1.05;margin:42px 0 12px}
+    .offer p{color:var(--muted);margin:0 0 26px}
+    .offer .text-link{margin-top:auto;font-weight:800;color:#fff}
+    .fit{margin-top:20px;border:1px solid var(--line);border-radius:22px;padding:34px;background:#101010}
+    .fit h3{font-size:28px;margin:0 0 20px;letter-spacing:-.03em}
+    .fit-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin:0;padding:0;list-style:none;color:#d7d5cf}
+    .fit-list li{position:relative;padding-left:22px}
+    .fit-list li:before{content:"•";position:absolute;left:0;color:var(--accent);font-weight:900}
+    .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+    .method-step{background:#111;padding:28px;min-height:235px}
+    .method-step strong{display:block;color:var(--accent);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:34px}
+    .method-step h3{font-size:25px;margin:0 0 10px;letter-spacing:-.03em}
+    .method-step p{color:var(--muted);margin:0}
     .projects{display:grid;grid-template-columns:1fr 1fr;gap:20px}
     .project{
       border:1px solid var(--line);border-radius:22px;background:var(--card);overflow:hidden
@@ -101,6 +147,7 @@
     .course-copy{padding:44px}
     .course-copy h3{font-size:clamp(38px,5vw,64px);line-height:1;letter-spacing:-.05em;margin:12px 0 18px}
     .course-copy p{color:var(--muted);font-size:18px;max-width:650px}
+    .resource-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
     .course-side{
       min-height:390px;display:flex;align-items:flex-end;padding:30px;position:relative;overflow:hidden;
       background:
@@ -108,6 +155,9 @@
         linear-gradient(145deg,#202020,#0d0d0d)
     }
     .course-side:after{content:"AUDIO";position:absolute;right:-20px;bottom:-28px;font-weight:900;font-size:110px;letter-spacing:-.08em;color:rgba(255,255,255,.05)}
+    .instagram-card{margin-top:20px;border:1px solid var(--line);border-radius:22px;padding:30px;background:linear-gradient(135deg,#171717,#0e0e0e);display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .instagram-card h3{font-size:30px;margin:0 0 8px;letter-spacing:-.035em}
+    .instagram-card p{margin:0;color:var(--muted);max-width:690px}
     .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}
     .about-img{border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#111;aspect-ratio:4/5}
     .about-img img{height:100%;object-fit:cover;object-position:center}
@@ -128,64 +178,155 @@
     .quote-mark{font:72px/.65 Georgia,serif;color:var(--accent);margin-bottom:25px}.review blockquote{margin:0;color:#dedcd6;font-size:17px;line-height:1.72}
     .review-person{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}.review-person strong{display:block;font-size:17px}.review-person span{display:block;color:var(--muted);font-size:14px;margin-top:3px}
     .review-note{font-size:12px;color:#77756f;margin-top:16px}.review-controls{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+    .swipe-hint{display:none;color:var(--muted);font-size:13px;align-items:center;justify-content:space-between;margin-top:12px}
     .review-arrow{width:48px;height:48px;border-radius:50%;border:1px solid #383838;background:#141414;color:#fff;font-size:20px;cursor:pointer}.review-arrow:hover{background:#f4f3ee;color:#090909}
 
     @media (max-width:880px){
       .links{display:none}
+      .menu-toggle{display:grid;place-items:center}
+      .mobile-menu.open{display:block}
       .hero-bottom{flex-direction:column;align-items:flex-start}
-      .section-head,.projects,.numa,.courses,.about,.contact-grid{grid-template-columns:1fr}
+      .hero-actions{justify-content:flex-start}
+      .section-head,.projects,.numa,.courses,.about,.contact-grid,.offer-grid,.method-grid{grid-template-columns:1fr}
+      .fit-list{grid-template-columns:1fr}
       .numa-art{min-height:300px}
       .socials{justify-content:flex-start}
+      .instagram-card{align-items:flex-start;flex-direction:column}
       .review{flex-basis:78vw;min-height:auto;padding:24px}
       .review-controls{display:none}
       .swipe-hint{display:flex}
       section{padding:80px 0}
       .hero-media img{object-position:58% center}
     }
+    @media (max-width:520px){
+      .wrap{width:min(calc(100% - 28px),var(--max))}
+      .brand-mark{width:118px;height:40px}
+      .hero{padding-bottom:54px}
+      h1{font-size:clamp(44px,14vw,68px)}
+      .hero-actions,.resource-actions{width:100%}
+      .hero-actions .btn,.resource-actions .btn{width:100%}
+      .course-copy,.numa-copy{padding:30px 24px}
+      .footer-row{flex-direction:column}
+    }
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#inicio">
         <span class="brand-mark"><img src="logo.png" alt="Logo Del Cerro Studios"></span>
         <span class="brand-name">BASTIÁN THOMPSON</span>
       </a>
-      <nav class="links">
-        <a href="#producciones">Producciones</a>
-        <a href="#numa">NUMA</a>
-        <a href="#cursos">Cursos</a>
+      <nav class="links" aria-label="Navegación principal">
+        <a href="#mentorias">Mentorías</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#experiencia">Experiencia</a>
         <a href="#sobre-mi">Sobre mí</a>
-        <a href="#resenas">Reseñas</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#resenas">Testimonios</a>
+        <a class="nav-cta" href="https://www.instagram.com/delcerrostudios/" target="_blank" rel="noopener">Instagram ↗</a>
       </nav>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">☰</button>
     </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Navegación móvil">
+      <a href="#mentorias">Mentorías</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#resenas">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </header>
 
-  <main>
+  <main id="contenido">
     <section class="hero" id="inicio">
-      <div class="hero-media"><img src="principal.jpg" alt="Bastián Thompson en batería"></div>
+      <div class="hero-media"><img src="principal.jpg" alt="Bastián Thompson en batería" fetchpriority="high"></div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="wrap">
-          <div class="kicker"><span class="dot"></span> Audio · Música · Producción · Formación</div>
-          <h1>Bastián<br>Thompson</h1>
+          <div class="kicker"><span class="dot"></span> Mentoría técnica en audio para músicos y creadores</div>
+          <h1>Más criterio.<br>Mejores decisiones de audio.</h1>
           <div class="hero-bottom">
-            <div class="hero-copy">Producción musical, audio y acompañamiento técnico para artistas y creadores que quieren llevar una idea desde la intuición hasta una obra terminada.</div>
-            <a class="btn" href="#producciones">Ver producciones ↓</a>
+            <div class="hero-copy">Te ayudo a ordenar tu home studio, resolver bloqueos técnicos y construir un flujo de trabajo que puedas comprender y sostener por tu cuenta.</div>
+            <div class="hero-actions">
+              <a class="btn" href="#mentorias">Ver mentorías ↓</a>
+              <a class="btn ghost" href="#recursos">Explorar recursos</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="producciones">
+    <section id="mentorias">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Trabajo seleccionado</div>
-            <h2>Producciones</h2>
+            <div class="eyebrow">Mentorías 1 a 1</div>
+            <h2>Resuelve lo técnico sin perder de vista la música.</h2>
           </div>
-          <div class="intro">Una selección de trabajos donde he participado desde distintos roles: producción, composición, grabación, mezcla, master e interpretación.</div>
+          <div class="intro">Trabajamos sobre tu contexto real para detectar el problema, ordenar prioridades y convertir información técnica en decisiones que puedas aplicar.</div>
+        </div>
+
+        <div class="offer-grid">
+          <article class="offer">
+            <span class="offer-number">01 · ORIENTACIÓN</span>
+            <h3>Diagnóstico técnico</h3>
+            <p>Revisamos tu situación, identificamos el cuello de botella y definimos qué conviene resolver primero.</p>
+            <a class="text-link" href="https://wa.me/56984703173?text=Hola%20Basti%C3%A1n%2C%20quiero%20consultar%20por%20un%20diagn%C3%B3stico%20t%C3%A9cnico." target="_blank" rel="noopener">Consultar disponibilidad →</a>
+          </article>
+          <article class="offer">
+            <span class="offer-number">02 · APLICACIÓN</span>
+            <h3>Mentoría de proyecto</h3>
+            <p>Trabajamos sobre una grabación, mezcla, configuración o decisión concreta para que puedas avanzar con claridad.</p>
+            <a class="text-link" href="https://wa.me/56984703173?text=Hola%20Basti%C3%A1n%2C%20quiero%20consultar%20por%20una%20mentor%C3%ADa%20de%20proyecto." target="_blank" rel="noopener">Contar mi proyecto →</a>
+          </article>
+          <article class="offer">
+            <span class="offer-number">03 · PROCESO</span>
+            <h3>Acompañamiento técnico</h3>
+            <p>Seguimiento para implementar cambios, revisar resultados y construir un sistema de trabajo más consistente.</p>
+            <a class="text-link" href="https://wa.me/56984703173?text=Hola%20Basti%C3%A1n%2C%20quiero%20consultar%20por%20acompa%C3%B1amiento%20t%C3%A9cnico." target="_blank" rel="noopener">Evaluar mi caso →</a>
+          </article>
+        </div>
+
+        <div class="fit">
+          <h3>Esto puede ayudarte si…</h3>
+          <ul class="fit-list">
+            <li>Tienes equipo, pero no sabes qué mejorar primero.</li>
+            <li>Tu flujo de grabación o mezcla funciona de forma inconsistente.</li>
+            <li>Recibes recomendaciones técnicas contradictorias.</li>
+            <li>Necesitas resolver un bloqueo concreto en un proyecto.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Cómo trabajamos</div><h2>Un proceso para entender y decidir.</h2></div>
+          <div class="intro">No se trata solo de corregir un problema puntual: la meta es que entiendas el porqué y puedas repetir el proceso con mayor autonomía.</div>
+        </div>
+        <div class="method-grid">
+          <article class="method-step"><strong>Paso 01</strong><h3>Entender</h3><p>Revisamos objetivos, contexto, herramientas y limitaciones reales.</p></article>
+          <article class="method-step"><strong>Paso 02</strong><h3>Priorizar</h3><p>Separamos lo urgente de lo accesorio y definimos el siguiente paso útil.</p></article>
+          <article class="method-step"><strong>Paso 03</strong><h3>Implementar</h3><p>Convertimos el diagnóstico en ajustes y acciones concretas.</p></article>
+          <article class="method-step"><strong>Paso 04</strong><h3>Comprender</h3><p>Te llevas criterios que podrás aplicar en nuevas decisiones.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Experiencia aplicada</div>
+            <h2>Trabajo seleccionado</h2>
+          </div>
+          <div class="intro">Mi trabajo como mentor se apoya en experiencia real de producción, composición, grabación, mezcla, master e interpretación.</div>
         </div>
 
         <div class="projects">
@@ -240,7 +381,7 @@
         </div>
 
         <div class="numa" id="numa">
-          <div class="numa-art"><img src="numa-origenes.png" alt="NUMA — Orígenes"></div>
+          <div class="numa-art"><img src="numa-origenes.png" alt="NUMA — Orígenes" loading="lazy" decoding="async"></div>
           <div class="numa-copy">
             <div class="eyebrow">Proyecto personal</div>
             <h3>NUMA</h3>
@@ -252,54 +393,62 @@
       </div>
     </section>
 
-    <section id="cursos">
+    <section id="recursos">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Formación</div>
-            <h2>Cursos & mentorías</h2>
+            <div class="eyebrow">Productos digitales</div>
+            <h2>Recursos para avanzar por tu cuenta.</h2>
           </div>
-          <div class="intro">Contenido pensado para ayudarte a tomar mejores decisiones técnicas, desarrollar criterio y avanzar en tus propios proyectos.</div>
+          <div class="intro">Herramientas prácticas para entender mejor tu espacio, invertir con intención y tomar decisiones técnicas más conscientes.</div>
         </div>
         <div class="courses">
           <div class="course-copy">
-            <div class="eyebrow">En desarrollo</div>
+            <div class="eyebrow">Próximamente · Acceso anticipado</div>
             <h3>Construye tu Home Studio con criterio.</h3>
-            <p>Una guía práctica para entender qué necesitas realmente, invertir mejor y crear un espacio de trabajo funcional sin perderte entre equipos y especificaciones.</p>
-            <br>
-            <a class="btn ghost" href="mailto:delcerrostudio@gmail.com?subject=Quiero%20información%20sobre%20cursos%20y%20mentorías">Quiero información →</a>
+            <p>Una guía práctica para elegir equipo, ordenar tu cadena de audio y crear un espacio funcional sin perderte entre compras, marcas y especificaciones.</p>
+            <div class="resource-actions">
+              <a class="btn ghost" href="mailto:delcerrostudio@gmail.com?subject=Acceso%20anticipado%20-%20Home%20Studio%20con%20criterio&amp;body=Hola%20Basti%C3%A1n%2C%20quiero%20recibir%20novedades%20y%20acceso%20anticipado%20al%20recurso.">Quiero acceso anticipado →</a>
+            </div>
           </div>
-          <div class="course-side"><span class="pill">Cursos · Toolkit · Mentorías</span></div>
+          <div class="course-side"><span class="pill">Guías · Toolkit · Formación</span></div>
+        </div>
+        <div class="instagram-card">
+          <div>
+            <h3>Contenido técnico, explicado con contexto.</h3>
+            <p>En Instagram comparto ideas, criterios y herramientas sobre audio, home studio y procesos creativos.</p>
+          </div>
+          <a class="btn ghost" href="https://www.instagram.com/delcerrostudios/" target="_blank" rel="noopener">Seguir en Instagram ↗</a>
         </div>
       </div>
     </section>
 
     <section id="sobre-mi">
       <div class="wrap about">
-        <div class="about-img"><img src="sobre-mi.jpg" alt="Bastián Thompson trabajando en audio"></div>
+        <div class="about-img"><img src="sobre-mi.jpg" alt="Bastián Thompson trabajando en audio" loading="lazy" decoding="async"></div>
         <div class="about-copy">
           <div class="eyebrow">Sobre mí</div>
           <h2>Técnica al servicio de una idea.</h2>
-          <p>Soy Bastián Thompson. Trabajo entre la música, el audio y la producción, acompañando proyectos desde la idea inicial hasta una solución técnica concreta.</p>
-          <p>Mi enfoque combina producción musical, experiencia práctica en sonido y una forma de trabajo orientada a que artistas y creadores entiendan mejor sus decisiones y construyan proyectos con identidad.</p>
+          <p>Soy Bastián Thompson, productor musical y mentor técnico en audio. Acompaño a músicos, productores y creadores que necesitan ordenar procesos, resolver bloqueos y tomar decisiones con mayor claridad.</p>
+          <p>Mi enfoque combina experiencia práctica en sonido y producción con una forma de trabajo orientada a comprender, no solo a ejecutar. La técnica es útil cuando permite avanzar con intención y autonomía.</p>
         </div>
       </div>
     </section>
 
-    <section id="resenas"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Experiencias</div><h2>Lo que dicen quienes han trabajado conmigo.</h2></div><div class="intro">Producción musical también significa escuchar, acompañar y construir confianza. Testimonios de artistas y profesionales con quienes he compartido distintos procesos creativos.</div></div><div class="reviews" id="reviews"><article class="review"><div><div class="quote-mark">“</div><blockquote>Uno de los aspectos que más valoro de trabajar con Bastián es su calidad humana y profesional. Genera un ambiente muy grato, con comunicación, respeto por las ideas y una preocupación real por que cada proyecto alcance su mejor resultado. Técnicamente demuestra criterio, precisión y una gran capacidad para comprender las necesidades de cada proyecto, combinando solvencia técnica con sensibilidad artística.</blockquote></div><div class="review-person"><strong>Marcelo Torrejón</strong><span>Músico y artista · Ovalle, Chile</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>Bastián ha sido parte importante de mi proceso como artista. Hemos trabajado varias canciones juntos y ha sido bacán compartir este camino con él. Además de ser un tremendo músico, productor y letrista, tiene una paciencia enorme y siempre está ayudándome a sacar lo mejor de cada canción y también de mí como cantante. Siempre escucha mis ideas, incluso las más locas, y busca la manera de llevarlas a un buen resultado.</blockquote></div><div class="review-person"><strong>Emily Lagos</strong><span>Cantante · Monte Patria, Chile</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>Compartimos un proyecto musical durante aproximadamente seis años y Bastián fue una persona muy importante en mi camino como cantante. Siempre me impulsó a atreverme y confiar más en mis capacidades. Es muy atento a los detalles y le importa profundamente que las cosas se hagan bien. Trabajar con él no solo significó compartir música, sino también crecer como artista y como persona, y encontrar más confianza en mi propia voz.</blockquote></div><div class="review-person"><strong>Ximena Bahena</strong><span>Cantante · México</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>He tenido el privilegio de trabajar con Bastián en varios proyectos y, sin duda, es uno de los mejores productores musicales que conozco. Más allá de su criterio técnico, destaco especialmente su sensibilidad y capacidad creativa. Tiene ese talento poco común de comprender una idea que todavía existe solo en tu cabeza y transformarla en un sonido con identidad, carácter y magia propia, incluso llevándola mucho más lejos de lo que originalmente imaginabas.</blockquote></div><div class="review-person"><strong>Antón Aliwen</strong><span>Músico y artista · La Serena, Chile</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>Si buscas un profesional cercano y talentoso, que no te deje solo durante el proceso, recomiendo plenamente a Bastián. Tiene la capacidad de guiarte, ordenar el caos, optimizar los tiempos y acompañar el proyecto hasta conseguir un resultado de primer nivel.</blockquote></div><div class="review-person"><strong>Marcelo Rivera</strong><span>Gestor cultural · Músico</span></div></article></div><div class="swipe-hint"><span>Desliza para ver más reseñas</span><span class="swipe-arrow">→</span></div><div class="review-controls"><button class="review-arrow" id="reviewPrev" aria-label="Reseña anterior">←</button><button class="review-arrow" id="reviewNext" aria-label="Reseña siguiente">→</button></div><div class="review-note">Extractos editados por extensión, manteniendo el sentido de los testimonios originales.</div></div></section>
+    <section id="resenas"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Confianza y acompañamiento</div><h2>Más claridad, menos ensayo y error.</h2></div><div class="intro">Experiencias de artistas y profesionales con quienes he ayudado a ordenar procesos, comprender necesidades y llevar ideas a resultados concretos.</div></div><div class="reviews" id="reviews"><article class="review"><div><div class="quote-mark">“</div><blockquote>Uno de los aspectos que más valoro de trabajar con Bastián es su calidad humana y profesional. Genera un ambiente muy grato, con comunicación, respeto por las ideas y una preocupación real por que cada proyecto alcance su mejor resultado. Técnicamente demuestra criterio, precisión y una gran capacidad para comprender las necesidades de cada proyecto, combinando solvencia técnica con sensibilidad artística.</blockquote></div><div class="review-person"><strong>Marcelo Torrejón</strong><span>Músico y artista · Ovalle, Chile</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>Bastián ha sido parte importante de mi proceso como artista. Hemos trabajado varias canciones juntos y ha sido bacán compartir este camino con él. Además de ser un tremendo músico, productor y letrista, tiene una paciencia enorme y siempre está ayudándome a sacar lo mejor de cada canción y también de mí como cantante. Siempre escucha mis ideas, incluso las más locas, y busca la manera de llevarlas a un buen resultado.</blockquote></div><div class="review-person"><strong>Emily Lagos</strong><span>Cantante · Monte Patria, Chile</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>Compartimos un proyecto musical durante aproximadamente seis años y Bastián fue una persona muy importante en mi camino como cantante. Siempre me impulsó a atreverme y confiar más en mis capacidades. Es muy atento a los detalles y le importa profundamente que las cosas se hagan bien. Trabajar con él no solo significó compartir música, sino también crecer como artista y como persona, y encontrar más confianza en mi propia voz.</blockquote></div><div class="review-person"><strong>Ximena Bahena</strong><span>Cantante · México</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>He tenido el privilegio de trabajar con Bastián en varios proyectos y, sin duda, es uno de los mejores productores musicales que conozco. Más allá de su criterio técnico, destaco especialmente su sensibilidad y capacidad creativa. Tiene ese talento poco común de comprender una idea que todavía existe solo en tu cabeza y transformarla en un sonido con identidad, carácter y magia propia, incluso llevándola mucho más lejos de lo que originalmente imaginabas.</blockquote></div><div class="review-person"><strong>Antón Aliwen</strong><span>Músico y artista · La Serena, Chile</span></div></article><article class="review"><div><div class="quote-mark">“</div><blockquote>Si buscas un profesional cercano y talentoso, que no te deje solo durante el proceso, recomiendo plenamente a Bastián. Tiene la capacidad de guiarte, ordenar el caos, optimizar los tiempos y acompañar el proyecto hasta conseguir un resultado de primer nivel.</blockquote></div><div class="review-person"><strong>Marcelo Rivera</strong><span>Gestor cultural · Músico</span></div></article></div><div class="swipe-hint"><span>Desliza para ver más testimonios</span><span class="swipe-arrow">→</span></div><div class="review-controls"><button class="review-arrow" id="reviewPrev" aria-label="Testimonio anterior">←</button><button class="review-arrow" id="reviewNext" aria-label="Testimonio siguiente">→</button></div><div class="review-note">Extractos editados por extensión, manteniendo el sentido de los testimonios originales.</div></div></section>
 
     <section class="contact" id="contacto">
       <div class="wrap">
-        <div class="eyebrow">Contacto</div>
-        <h2>Conversemos sobre tu próximo proyecto.</h2>
+        <div class="eyebrow">Siguiente paso</div>
+        <h2>Cuéntame qué necesitas resolver.</h2>
         <div class="contact-grid">
           <div class="contact-data">
+            <p>Escríbeme con un poco de contexto sobre tu proyecto o bloqueo técnico. Te responderé con el siguiente paso más útil.</p>
             <a href="mailto:delcerrostudio@gmail.com">delcerrostudio@gmail.com</a>
-            <a href="tel:+56984703173">+56 9 8470 3173</a>
-            <a href="https://wa.me/56984703173" target="_blank" rel="noopener">WhatsApp →</a>
+            <a href="https://wa.me/56984703173?text=Hola%20Basti%C3%A1n%2C%20quiero%20consultar%20por%20una%20mentor%C3%ADa%20t%C3%A9cnica%20en%20audio." target="_blank" rel="noopener">Consultar por WhatsApp →</a>
           </div>
           <div class="socials">
-            <a class="btn dark" href="https://www.instagram.com/delcerrostudios/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn dark" href="https://www.instagram.com/delcerrostudios/" target="_blank" rel="noopener">Escribir por Instagram</a>
             <a class="btn dark" href="https://www.facebook.com/share/1ER4es17cL/" target="_blank" rel="noopener">Facebook</a>
             <a class="btn dark" href="https://www.youtube.com/@delcerrostudios" target="_blank" rel="noopener">YouTube</a>
           </div>
@@ -311,7 +460,7 @@
   <footer>
     <div class="wrap footer-row">
       <span>© 2026 Bastián Thompson / Del Cerro Studios</span>
-      <span>Audio · Música · Producción</span>
+      <span>Mentoría técnica · Audio · Producción</span>
     </div>
   </footer>
 <script>
@@ -321,6 +470,10 @@ prev.onclick=()=>reviews.scrollBy({left:-step(),behavior:'smooth'});next.onclick
 let down=false,x=0,s=0;reviews.onmousedown=e=>{down=true;reviews.classList.add('dragging');x=e.pageX;s=reviews.scrollLeft};
 window.onmouseup=()=>{down=false;reviews.classList.remove('dragging')};reviews.onmouseleave=window.onmouseup;
 reviews.onmousemove=e=>{if(down){e.preventDefault();reviews.scrollLeft=s-(e.pageX-x)}};
+const menuToggle=document.getElementById('menuToggle'),mobileMenu=document.getElementById('mobileMenu');
+const closeMenu=()=>{mobileMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Abrir menú');menuToggle.textContent='☰'};
+menuToggle.onclick=()=>{const open=mobileMenu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');menuToggle.textContent=open?'×':'☰'};
+mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
 </script>
 </body>
 </html>
